@@ -6,7 +6,7 @@ import ShopItemList from '../components/ShopItemList';
 
 export const ShopPage = (props) => (
   <Container>
-    <Head title='Home'/>
+    <Head title='Shop'/>
     
       <Typography variant="h1">My Shop</Typography>   
       <ShopItemList

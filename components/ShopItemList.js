@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import { useRouter } from 'next/router';
 import ShopItem from './ShopItem';
-import { Description } from '@mui/icons-material';
 
 function ShopItemList() {
 
@@ -12,21 +11,23 @@ function ShopItemList() {
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
-  useEffect(async () => {
+  useEffect( () => {
+    async function update(){
+
+    
     const response = await fetch(getProductsUrl,{ method: 'GET'});
-    const json = await response. json();
-    console.log(json);
-    setProducts (json) 
+    const json = await response.json();
+    setProducts (json) ;
+
+    }
+    update();
   }, []) 
 
   const handleAddToCart = async (product) => {
-    /* add product to cart via api */
-    /* redirect to the cart page */
+    
+    const response = await fetch(addToCartUrl, { method: 'POST', product, headers: { 'content-type': 'application/json' }});
+    router.push("/cart")
   }
-
-        // Add your ShoppingItem components here! 
-       // How should you iterate over the list of products?  
-       // Hint: map() function for Arrays 
   return (
     <Grid container direction="row" spacing={1}>
        {products.map(product => 

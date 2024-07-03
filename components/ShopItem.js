@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import { Card, Button, CardContent, CardActions, CardMedia, Typography} from '@mui/material';
 
@@ -8,10 +8,10 @@ const images = ["https://img1.wsimg.com/cdn/Image/All/AllChannelsFoS/1/en-US/c8d
   "https://img1.wsimg.com/cdn/Image/All/AllChannelsFoS/1/en-US/c8d98599-46cc-412d-bbb5-d766bb0e5a05/Product-grid-SSL.jpg",
   "https://img1.wsimg.com/cdn/Image/All/AllChannelsFoS/1/en-US/8f679b96-df22-41fc-afd8-854d47a1c634/Product-grid-Hosting.jpg",
   "https://img1.wsimg.com/cdn/Image/All/FOS-Intl/1/en-US/3b91b99f-57eb-44bd-b2e1-1cfd6529bbfb/feat-ols-your-store-your-way.jpg?impolicy=cms-feature-module"]
-function ShopItem({ product_id, name, description, image_url, price, is_on_sale, sale_price, onAddToCart }) {
+function ShopItem({ product_id, name, description, price, onAddToCart }) {
   
   const addToCart = () => {
-     /* Insert logic here  */
+      onAddToCart({ product_id, name, price, quantity: 1 })
   }
 
   return (
@@ -28,7 +28,7 @@ function ShopItem({ product_id, name, description, image_url, price, is_on_sale,
       <Typography variant="h6">{price}</Typography>
     </CardContent>
     <CardActions>
-    <Button onClick={addToCart} color="primary">Add To Cart</Button>
+    <Button onClick={addToCart} color="secondary">Add To Cart</Button>
       </CardActions>
     </Card>
 );
