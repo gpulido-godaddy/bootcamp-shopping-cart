@@ -6,26 +6,23 @@ import ShopItem from './ShopItem';
 function ShopItemList() {
 
   // this is the state we will use to hold the response from the api
-  const getProductsUrl = "http://localhost:8000/v1/products" ;
   const addToCartUrl = "http://localhost:8000/v1/cartitems";
+  const getProductsListUrl = "http://localhost:8000/v1/products" ;
   const [products, setProducts] = useState([]);
   const router = useRouter();
 
   useEffect( () => {
     async function update(){
-
-    
-    const response = await fetch(getProductsUrl,{ method: 'GET'});
+    const response = await fetch(getProductsListUrl,{ method: 'GET'});
     const json = await response.json();
-    setProducts (json) ;
-
+    setProducts (json);
     }
     update();
-  }, []) 
+  }, []);
 
   const handleAddToCart = async (product) => {
-    
-    const response = await fetch(addToCartUrl, { method: 'POST', product, headers: { 'content-type': 'application/json' }});
+    const bodyofProduct = JSON.stringify(product);
+    const response = await fetch(addToCartUrl, { method: 'POST', bodyofProduct, headers: { 'content-type': 'application/json' }});
     router.push("/cart")
   }
   return (

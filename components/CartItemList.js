@@ -16,8 +16,6 @@ function CartItemList() {
     }
     update();
   }, [])
-
-
   return (
     <div>
       <Grid container direction="column" spacing={1}>
@@ -29,14 +27,15 @@ function CartItemList() {
               id={cartItem.id}
               quantity={cartItem.quantity}
               price={cartItem.price}
-              onRemoveCartItem={this.deleteCartItem}
               />
           </Grid>
         )}
       </Grid>
+      <div>
         <Typography variant="h2">
           Total: ${totalPrice}
         </Typography>
+      </div>
     </div>
   );
 }

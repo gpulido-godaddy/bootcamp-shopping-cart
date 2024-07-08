@@ -12,10 +12,14 @@ const images = [
 
 function CartItem({ product_id, name, id, price, quantity, onRemoveCartItem }) {
   
-  const removeCartItem = () => {
+  /*const removeCartItem = () => {
     onRemoveCartItem(id)
-  }
+  }*/
 
+  /*<CardActions>
+          <Button onClick={removeCartItem} color="secondary">Remove from cart</Button>
+        </CardActions>
+        */
   return (
     <Card styles={{display: 'flex'}}>
       <CardMedia
@@ -23,14 +27,12 @@ function CartItem({ product_id, name, id, price, quantity, onRemoveCartItem }) {
         image={images[product_id]}
         title={name}
       />
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
+      <div>
+        <CardContent >
           <Typography variant="h6">{name}</Typography>   
           <Typography variant="h3">{price} x ${quantity}</Typography>
         </CardContent>
-        <CardActions>
-          <Button onClick={removeCartItem} color="secondary">Remove from cart</Button>
-        </CardActions>
+        
       </div>
     </Card>
   );
