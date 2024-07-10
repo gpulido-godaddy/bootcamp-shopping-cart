@@ -6,7 +6,8 @@ import CartItem from './CartItem';
 function CartItemList() {
   const cartURL = "http://localhost:8000/v1/cartitems";
   const [cartItems, setCartItems] = useState([]); 
-  const totalPrice = cartItems.map(cartItem => cartItem.quantity * cartItem.price).reduce((a, b) => a + b, 0)
+  // next steps, update decimal placement/cutoff for total price 
+  const totalPrice = cartItems.map(cartItem => cartItem.quantity * cartItem.price).reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
   useEffect( () => {
     async function update(){
@@ -25,15 +26,20 @@ function CartItemList() {
               product_id={cartItem.product_id}
               name={cartItem.name}
               id={cartItem.id}
+              
               quantity={cartItem.quantity}
               price={cartItem.price}
+              
               />
           </Grid>
         )}
       </Grid>
       <div>
-        <Typography variant="h2">
+        <Typography variant="h3">
           Total: ${totalPrice}
+        </Typography>
+        <Typography variant="h2">
+          Total with Tax: ${totalPrice} 
         </Typography>
       </div>
     </div>

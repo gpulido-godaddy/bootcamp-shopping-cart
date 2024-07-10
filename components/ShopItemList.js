@@ -21,8 +21,8 @@ function ShopItemList() {
   }, []);
 
   const handleAddToCart = async (product) => {
-    const bodyofProduct = JSON.stringify(product);
-    const response = await fetch(addToCartUrl, { method: 'POST', bodyofProduct, headers: { 'content-type': 'application/json' }});
+    const body = JSON.stringify(product);
+    const response = await fetch(addToCartUrl, { method: 'POST', body, headers: { 'content-type': 'application/json' }});
     router.push("/cart")
   }
   return (

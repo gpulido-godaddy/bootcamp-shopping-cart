@@ -10,29 +10,22 @@ const images = [
   "https://img1.wsimg.com/cdn/Image/All/FOS-Intl/1/en-US/3b91b99f-57eb-44bd-b2e1-1cfd6529bbfb/feat-ols-your-store-your-way.jpg?impolicy=cms-feature-module"
 ]
 
-function CartItem({ product_id, name, id, price, quantity, onRemoveCartItem }) {
+function CartItem({product_id, name, price, quantity}) {
   
-  /*const removeCartItem = () => {
-    onRemoveCartItem(id)
-  }*/
-
-  /*<CardActions>
-          <Button onClick={removeCartItem} color="secondary">Remove from cart</Button>
-        </CardActions>
-        */
   return (
-    <Card styles={{display: 'flex'}}>
+    
+    <Card styles={{height: "400px"}}>
+      <div>
       <CardMedia
-        styles={{width: 200}}
+        styles={{ height: "140px"}}
         image={images[product_id]}
         title={name}
       />
-      <div>
-        <CardContent >
+        <CardContent>
           <Typography variant="h6">{name}</Typography>   
-          <Typography variant="h3">{price} x ${quantity}</Typography>
+          <Typography variant="h3">${price}</Typography>
+          <Typography variant="h6">Quantity: {quantity}</Typography>
         </CardContent>
-        
       </div>
     </Card>
   );
