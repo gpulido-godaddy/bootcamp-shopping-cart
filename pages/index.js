@@ -13,6 +13,9 @@ export const IndexPage = (props) => (
     <div>
     <Link href="/shop">View shop</Link>
     </div>
+    <div>
+    <Link href="/aboutus">Learn about our company!</Link>
+    </div>
   </div>
 );
 
