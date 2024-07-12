@@ -29,11 +29,11 @@ function CartItemList() {
 
   return (
     <div>
-      <Grid container direction="column" spacing={1}>
+      <Grid container direction="column" spacing={3}>
         {cartItems.map(cartItem =>
           <Grid item xs>
             <CartItem
-              
+              image_url={cartItem.image_url}
               product_id={cartItem.product_id}
               name={cartItem.name}
               id={cartItem.id}

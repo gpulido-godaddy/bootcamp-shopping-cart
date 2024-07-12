@@ -1,20 +1,21 @@
 import React from 'react';
 import { Card, Button, CardContent, CardActions, CardMedia, Typography} from '@mui/material';
 
-function CartItem({product_id, id, image_url, name, price, quantity, onDeleteFromCart}) {
+function CartItem({id, name, price, quantity, image_url,onDeleteFromCart}) {
   
   const deleteFromCart = () => {
     onDeleteFromCart(id)
   }
   return (
-    <Card styles={{height: "400px"}}>
-      <div>
+    <Card styles={{height: "400px",width:"100px"}}>
       <CardMedia
-        styles={{ height: "140px"}}
+        style={{ height: "100px" ,width:"600px"}}
         image={image_url}
         title={name}
       />
-        <CardContent>
+      <div>
+      
+        <CardContent styles={{height: "400px",width:"150px"}}>
           <Typography variant="h6">{name}</Typography>   
           <Typography variant="h3">${price}</Typography>
           <Typography variant="h6">Quantity: {quantity}</Typography>
