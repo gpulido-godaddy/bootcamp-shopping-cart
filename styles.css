@@ -1,8 +1,17 @@
 body {
-  background-color: rgb(12,51,84);
+  
+  background-image: radial-gradient(#dde7c7, #98c9a3);
   color: white;
 }
 
 a:visited {
   color: lightgray;
 }
+
+.header {
+  background-color: white;
+  color: white;
+  align-items: center;
+}
+
+
