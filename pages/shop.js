@@ -11,10 +11,8 @@ export const ShopPage = (props) => (
   <Container>
     <Header />
     <Head title='Shop'/>
-    
       <Typography variant="h1">My Shop</Typography>   
-      <ShopItemList
-    />
+      <ShopItemList />
     <div>
       <Link href="/cart">View cart</Link>
     </div>

@@ -1,15 +1,20 @@
 import React from 'react';
 
 import { Card, Button, CardContent, CardActions, CardMedia, Typography} from '@mui/material';
-import Logo from '../public/images/logo.png';
 function Header() {
-    
+    //<img src={require('../public/images/logo.png')} alt="Logo" />
+            
 
     return (
         <header className="header">
-            <img src={require('../public/images/logo.png')} alt="Logo" />
+            
+            
+            <CardMedia
+                style={{ height: "140px"}}
+                image='http://localhost:8080/images/logo.png'
+                
+            />
         </header>
     );
 }
-
 export default Header;

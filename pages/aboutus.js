@@ -1,35 +1,89 @@
-import React from 'react';
-import Head from '../components/head';
-import { Container, Typography, Button } from '@mui/material';
-import Link from 'next/link';
-import { styled } from '@mui/material/styles'; // Import styled from @mui/material/styles
+import React from "react";
+import Head from "../components/head";
+import { Container, Typography, Button, Box } from "@mui/material";
+import Link from "next/link";
+import { styled } from "@mui/material/styles"; // Import styled from @mui/material/
+import IconButton from "@mui/material/IconButton";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-// Define a styled component for the buttons with a pretty pink color
+const CustomTitle = styled(Typography)({
+  marginTop: "16px",
+  color: "#ce6a85",
+});
+
+// Define a styled component for the buttons
 const CustomButton = styled(Button)({
-  marginRight: '8px', 
-  marginTop: '8px',
-  textTransform: 'none', 
-  backgroundColor: '#985277', 
-  color: '#ffffff', 
-  '&:hover': {
-    backgroundColor: '#f50057', 
+  marginRight: "8px",
+  marginTop: "8px",
+  textTransform: "none",
+  backgroundColor: "#ce6a85",
+  color: "#ffffff",
+  "&:hover": {
+    backgroundColor: "#985277",
   },
+});
+
+const ParagraphBackground = styled(Box)({
+  backgroundColor: "#efdac9", // Background color for the paragraphs
+  padding: "50px",
+  borderRadius: "8px",
+  width: "100%",
+  height: "300px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 export const AboutUsPage = (props) => {
   return (
-    <Container>
-      <Head title='About Us' />
+    <Container maxWidth="md">
+      <Head title="About Us" />
+      <nav class="abouttopnav">
+        <Link href="/shop" passHref>
+          
+          Return to Shop
+        </Link>
+        <Link href="/cart" passHref>
+          <IconButton size="large" aria-label="show 1 new item" color="inherit">
+            <Badge badgeContent={1} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+        </Link>
+      </nav>
 
-      <Typography variant="h2">About Radiant Beauty</Typography>
+      <CustomTitle variant="h2">About Radiant Beauty--</CustomTitle>
       <Typography variant="h4">Our Mission</Typography>
-      <Typography variant="body1">
-        We are a passionate group of five girls who came together with a shared love for makeup and a vision to create a brand that celebrates diversity, creativity, and individuality. Our journey began with a simple idea: to offer high-quality makeup products that empower everyone to express their unique beauty.
-        <br /><br />
-        At Radiant Beauty, we believe in beauty that goes beyond skin deep. Our products are meticulously curated and tested to ensure they not only enhance your natural features but also inspire confidence and self-expression. From vibrant eyeshadow palettes to luxurious lipsticks, each item is crafted with care and designed to cater to all skin tones and preferences.
-        <br /><br />
-        Driven by our commitment to inclusivity and innovation, we are dedicated to staying ahead of trends and delivering beauty solutions that exceed expectations. Join us as we redefine beauty standards and celebrate the diversity of our community, one makeup product at a time.
-      </Typography>
+      <ParagraphBackground>
+        <Typography variant="body1">
+          We are a passionate group of five girls who came together with a
+          shared love for makeup and a vision to create a brand that celebrates
+          diversity, creativity, and individuality. Our journey began with a
+          simple idea: to offer high-quality makeup products that empower
+          everyone to express their unique beauty.
+          <br />
+          <br />
+          At Radiant Beauty, we believe in beauty that goes beyond skin deep.
+          Our products are meticulously curated and tested to ensure they not
+          only enhance your natural features but also inspire confidence and
+          self-expression. From vibrant eyeshadow palettes to luxurious
+          lipsticks, each item is crafted with care and designed to cater to all
+          skin tones and preferences.
+          <br />
+          <br />
+          Driven by our commitment to inclusivity and innovation, we are
+          dedicated to staying ahead of trends and delivering beauty solutions
+          that exceed expectations. Join us as we redefine beauty standards and
+          celebrate the diversity of our community, one makeup product at a
+          time.
+        </Typography>
+        <div>
+          <Typography>
+            <img src="/images/girl.jpeg" alt="Girl" />
+          </Typography>
+        </div>
+      </ParagraphBackground>
 
       <div>
         <Link href="/cart" passHref>
