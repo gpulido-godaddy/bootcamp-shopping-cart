@@ -7,15 +7,15 @@ function CartItem({id, name, price, quantity, image_url,onDeleteFromCart}) {
     onDeleteFromCart(id)
   }
   return (
-    <Card styles={{height: "400px",width:"100px"}}>
+    <Card styles={{height: "150px",width:"70px"}}>
       <CardMedia
-        style={{ height: "100px" ,width:"600px"}}
+        style={{ height: "280px",width:"300px"}}
         image={image_url}
         title={name}
       />
       <div>
       
-        <CardContent styles={{height: "400px",width:"150px"}}>
+        <CardContent styles={{height: "200px",width:"150px"}}>
           <Typography variant="h6">{name}</Typography>   
           <Typography variant="h3">${price}</Typography>
           <Typography variant="h6">Quantity: {quantity}</Typography>
