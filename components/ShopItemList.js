@@ -26,7 +26,7 @@ function ShopItemList() {
     router.push("/cart")
   }
   return (
-    <Grid container direction="row" spacing={1}>
+    <Grid container direction="row" spacing={2}>
        {products.map(product => 
         <Grid item xs>
           <ShopItem
