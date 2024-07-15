@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "../components/head";
-import { Container, Typography, Button, Box } from "@mui/material";
+import { CardMedia, Container, Typography, Button, Box } from "@mui/material";
 import Link from "next/link";
 import { styled } from "@mui/material/styles"; // Import styled from @mui/material/
 import IconButton from "@mui/material/IconButton";
@@ -41,7 +41,6 @@ export const AboutUsPage = (props) => {
       <Head title="About Us" />
       <nav class="abouttopnav">
         <Link href="/shop" passHref>
-          
           Return to Shop
         </Link>
         <Link href="/cart" passHref>
@@ -80,7 +79,7 @@ export const AboutUsPage = (props) => {
         </Typography>
         <div>
           <Typography>
-            <img src="/images/girl.jpeg" alt="Girl" />
+            <img src="https://localhost:8080/images/girl.jpeg" alt="Girl" />
           </Typography>
         </div>
       </ParagraphBackground>

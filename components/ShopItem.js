@@ -8,12 +8,12 @@ function ShopItem({ product_id, name, description, price, onAddToCart, image_url
   const addToCart = () => {
       onAddToCart({ product_id, name, price, quantity: 1, image_url })
   }
-
   const color = pink[50];
 
   if(is_on_sale){
     const temp_price = price;
     price = sale_price;
+  
     return( 
       <Card style={{height: "550px", width:"200px"}}>
     <CardMedia

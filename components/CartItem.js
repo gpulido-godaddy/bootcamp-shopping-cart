@@ -21,7 +21,7 @@ function CartItem({id, name, price, quantity, image_url,onDeleteFromCart}) {
           <Typography variant="h6">Quantity: {quantity}</Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={deleteFromCart} color="secondary">Remove cart item</Button>
+          <Button onClick={deleteFromCart} color="inherit">Remove cart item</Button>
         </CardActions>
       </div>
     </Card>
