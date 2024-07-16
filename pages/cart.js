@@ -11,7 +11,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export const CartPage = (props) => (
     <Container>
       <Head title='Cart'/>
-      <nav class="carttopnav">
+      <nav className="carttopnav">
         <Link href="/sales" passHref>Sales</Link>
         <Link href="/aboutus" passHref>About Us</Link>
         <Link href="/shop" passHref>Return to Shop</Link>
@@ -25,9 +25,9 @@ export const CartPage = (props) => (
       </nav>
       
         <Typography variant="h1">My Cart</Typography>
-        <div class="cart-quantity cart-column">
-          < input class="cart-quantity-input" type="number" value="1" min="1" max="10" />
-          <button class="btn btn-danger"
+        <div className="cart-quantity cart-column">
+          < input className="cart-quantity-input" type="number" value="1" min="1" max="10" />
+          <button className="btn btn-danger"
             type="button">REMOVE</button>
         </div>
         <CartItemList

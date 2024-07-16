@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles"; // Import styled from @mui/materi
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
+import TeamImages from "../components/TeamImages";
 const CustomTitle = styled(Typography)({
   marginTop: "16px",
   color: "#ce6a85",
@@ -39,7 +39,7 @@ export const AboutUsPage = (props) => {
   return (
     <Container maxWidth="md">
       <Head title="About Us" />
-      <nav class="abouttopnav">
+      <nav className="abouttopnav">
         <Link href="/shop" passHref>
           Return to Shop
         </Link>
@@ -52,7 +52,7 @@ export const AboutUsPage = (props) => {
         </Link>
       </nav>
 
-      <CustomTitle variant="h2">About Radiant Beauty--</CustomTitle>
+      <CustomTitle variant="h2">About Radiant Beauty</CustomTitle>
       <Typography variant="h4">Our Mission</Typography>
       <ParagraphBackground>
         <Typography variant="body1">
@@ -68,7 +68,8 @@ export const AboutUsPage = (props) => {
           only enhance your natural features but also inspire confidence and
           self-expression. From vibrant eyeshadow palettes to luxurious
           lipsticks, each item is crafted with care and designed to cater to all
-          skin tones and preferences.
+          skin tones and preferences. We resell items from a variety of brands that are
+          guaranteed to meet your standards.
           <br />
           <br />
           Driven by our commitment to inclusivity and innovation, we are
@@ -77,12 +78,8 @@ export const AboutUsPage = (props) => {
           celebrate the diversity of our community, one makeup product at a
           time.
         </Typography>
-        <div>
-          <Typography>
-            <img src="https://localhost:8080/images/girl.jpeg" alt="Girl" />
-          </Typography>
-        </div>
       </ParagraphBackground>
+      <TeamImages/>
 
       <div>
         <Link href="/cart" passHref>

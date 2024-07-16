@@ -22,12 +22,12 @@ export const IndexPage = (props) => (
   <div>
     <Head title="Home" />
     <div>
-      <nav class="indextopnav">
+      <nav className="indextopnav">
         <Link href="/shop" passHref>
           Shop
         </Link>
         <Link href="/sales" passHref>
-          Category1
+          Sales
         </Link>
         <Link href="/aboutus" passHref>
           About Us

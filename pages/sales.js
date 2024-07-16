@@ -10,7 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export const Sales = (props) => (
   <Container>
     <Head title='Sales'/>
-      <nav class="category1topnav">
+      <nav className="category1topnav">
         <Link href="/shop" passHref>Return to Main Shop</Link>
         <Link href="/aboutus" passHref>About Us</Link>
         <Link href="/cart" passHref>

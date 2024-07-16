@@ -8,9 +8,10 @@ function SalesItem({ product_id, name, description, price, onAddToCart, image_ur
       onAddToCart({ product_id, name, price, quantity: 1, image_url })
   }
   if (is_on_sale){
+    const temp_price = price;
     price = sale_price;
     return( 
-    <Card style={{height: "500px", width:"200px"}} sx={{ m: 2 }}>
+    <Card style={{height: "550px", width:"200px"}} sx={{ m: 2 }}>
     <CardMedia
         style={{ height: "170px", width:"200px"}}
         image={image_url}
@@ -21,7 +22,8 @@ function SalesItem({ product_id, name, description, price, onAddToCart, image_ur
       <Typography variant="h6">{makeup_type}</Typography>
       <Typography variant="subtitle2">{description}</Typography>
       <br/>
-      <Typography variant="h6">{sale_price}</Typography>
+      <Typography variant="subtitle1">This item is on sale from ${temp_price} to</Typography>
+      <Typography variant="h6">${sale_price}</Typography>
     </CardContent>
     <CardActions>
     <Button onClick={addToCart} color="inherit">Add To Cart</Button>
