@@ -39,14 +39,14 @@ export const IndexPage = (props) => (
         </Link>
       </nav>
     </div>
-      <Box
+    <Box
       display="flex"
       justifyContent="center"
       alignItems="center"
-      minHeight="100vh"
       >
-      <img src="http://localhost:8080/images/logo.png"/>
+      <img style={{width: 350, height: 350}}  src="https://lh3.googleusercontent.com/pw/AP1GczNVAP93h8VsAXu6y1d3td3OyCR0yPtzj_Q7D1lrP1rYyEopSoeKBmu0vv8BAk1UQfDS6CYNHmmXdTYu_8ha5U8G9uW551kwV6uBVCg9m5UtkkRPn8k38p0HgPNXUrgIRZ6rDGmhYz-weT2FwEoBLM4a=w500-h500-s-no-gm?authuser=0"/>
       </Box>
+
     <h1>Radiant Beauty</h1>
     <div>
       <Link href="/cart" passHref>

@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TeamImages from "../components/TeamImages";
+
 const CustomTitle = styled(Typography)({
   marginTop: "16px",
   color: "#ce6a85",
@@ -51,7 +52,6 @@ export const AboutUsPage = (props) => {
           </IconButton>
         </Link>
       </nav>
-
       <CustomTitle variant="h2">About Radiant Beauty</CustomTitle>
       <Typography variant="h4">Our Mission</Typography>
       <ParagraphBackground>
@@ -63,6 +63,7 @@ export const AboutUsPage = (props) => {
           everyone to express their unique beauty.
           <br />
           <br />
+          
           At Radiant Beauty, we believe in beauty that goes beyond skin deep.
           Our products are meticulously curated and tested to ensure they not
           only enhance your natural features but also inspire confidence and
@@ -80,7 +81,6 @@ export const AboutUsPage = (props) => {
         </Typography>
       </ParagraphBackground>
       <TeamImages/>
-
       <div>
         <Link href="/cart" passHref>
           <CustomButton variant="contained">Return to cart</CustomButton>
