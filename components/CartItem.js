@@ -5,34 +5,18 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 function CartItem({id, name, price, quantity, image_url,onDeleteFromCart, onDecreaseQuantity, onIncreaseQuantity}) {
   
-  const addToCartUrl = "http://localhost:8000/v1/cartitems";
-
   const deleteFromCart = () => {
     onDeleteFromCart(id)
   }
 
   const increaseQuantity = () => {
     onIncreaseQuantity(id);
-    handleUpdateQuantity(quantity+1);
   };
 
   const decreaseQuantity = () => {
     onDecreaseQuantity(id);
-    handleUpdateQuantity(quantity-1);
     
   };
-
-   const handleUpdateQuantity = async (quantity) => {
-    const body = JSON.stringify({ id, quantity: quantity });
-    const response = await fetch(addToCartUrl, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: body,
-    });
-    
-  }
 
   return (
     <Card styles={{height: "150px",width:"70px"}}>

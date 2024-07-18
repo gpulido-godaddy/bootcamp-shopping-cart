@@ -5,10 +5,8 @@ import ShopItem from './ShopItem';
 
 function ShopItemList() {
 
-  // this is the state we will use to hold the response from the api
   const addToCartUrl = "http://localhost:8000/v1/cartitems";
   const getProductsListUrl = "http://localhost:8000/v1/products" ;
-  
   const router = useRouter();
   const [makeupType,setMakeupType] = useState('');
   const [products, setProducts] = useState([]);
@@ -17,26 +15,33 @@ const handleFilterChange = (newMakeupType) => {
   setMakeupType(newMakeupType);
 };
 
-const filteredProducts = products.filter(product => product.makeup_type == makeupType);
-    
 const handleReverse = () => {
   setMakeupType("");
-  
-};
+}
 
-useEffect( () => {
-  async function update(){
-  const response = await fetch(getProductsListUrl,{ method: 'GET'});
-  const json = await response.json();
-  setProducts (json);
-  }
-  update();
-}, []);
+  useEffect( () => {
+    async function update(){
+    const response = await fetch(getProductsListUrl,{ method: 'GET'});
+    const json = await response.json();
+    setProducts(json);
+    }
+    update();
+  }, []);
 
   const handleAddToCart = async (product) => {
+    const responseCart = await fetch(addToCartUrl,{ method: 'GET'});
+    const json = await responseCart.json();
+    const currentCartItems = json;
+    //console.log(product.name);
+    //console.log(currentCartItems);
     const body = JSON.stringify(product);
+    const alreadyInCartItem = currentCartItems.find(item => item.name == product.name);
+    if (alreadyInCartItem) {
+      alert("This item is already in the cart. You can update the quantity on the cart page.");
+      return;
+    }
     const response = await fetch(addToCartUrl, { method: 'POST', body, headers: { 'content-type': 'application/json' }});
-    router.push("/cart")
+    router.push("/cart");
   }
 
   return (
@@ -59,7 +64,7 @@ useEffect( () => {
         <Grid item xs>
           <ShopItem
             key={product.id}
-            product_id={product.id}
+            product_id={product.product_id}
             name={product.name}
             description={product.description}
             image_url={product.image_url}
@@ -70,7 +75,6 @@ useEffect( () => {
           </ShopItem>
         </Grid>
        ))}
-    
     </Grid>
     </div>
   )

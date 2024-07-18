@@ -21,10 +21,21 @@ function SalesList() {
   }, []);
 
   const handleAddToCart = async (product) => {
+    const responseCart = await fetch(addToCartUrl,{ method: 'GET'});
+    const json = await responseCart.json();
+    const currentCartItems = json;
+    //console.log(product.name);
+    //console.log(currentCartItems);
     const body = JSON.stringify(product);
+    const alreadyInCartItem = currentCartItems.find(item => item.name == product.name);
+    if (alreadyInCartItem) {
+      alert("This item is already in the cart. You can update the quantity on the cart page.");
+      return;
+    }
     const response = await fetch(addToCartUrl, { method: 'POST', body, headers: { 'content-type': 'application/json' }});
     router.push("/cart")
   }
+
   return (
     <Grid container direction="row" spacing={5} sx={{ m: 0.5 }}>
        {saleProducts.map(product => 
@@ -34,7 +45,7 @@ function SalesList() {
        >
           <SalesItem
             key={product.id}
-            product_id={product.id}
+            product_id={product.product_id}
             name={product.name}
             description={product.description}
             image_url={product.image_url}
