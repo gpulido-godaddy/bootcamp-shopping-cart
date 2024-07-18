@@ -80,7 +80,6 @@ export const AboutUsPage = (props) => {
           time.
         </Typography>
       </ParagraphBackground>
-      <TeamImages/>
       <div>
         <Link href="/cart" passHref>
           <CustomButton variant="contained">Return to cart</CustomButton>

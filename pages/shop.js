@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Header from "../components/Header";
+import { cartQuantity } from '../components/ShopItem.js';
 
 export const ShopPage = (props) => (
   <Container>
@@ -21,11 +22,12 @@ export const ShopPage = (props) => (
         About Us
       </Link>
       <Link href="/cart" passHref>
-        <IconButton size="large" aria-label="show 1 new item" color="inherit">
-          <Badge badgeContent={1} color="error">
-            <ShoppingCartIcon/>
-          </Badge>
-        </IconButton>
+      <IconButton size="large" aria-label="show number of items added" color="inherit">
+            <Badge badgeContent={cartQuantity} color="error">
+              <ShoppingCartIcon/>
+            </Badge>
+          </IconButton>
+
       </Link>
 
     </nav>

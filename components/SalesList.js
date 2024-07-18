@@ -32,7 +32,6 @@ function SalesList() {
        display="flex"
        minHeight="60vh"
        >
-       
           <SalesItem
             key={product.id}
             product_id={product.id}

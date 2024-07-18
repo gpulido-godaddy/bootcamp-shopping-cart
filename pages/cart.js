@@ -7,6 +7,7 @@ import CartItemList from '../components/CartItemList';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { cartQuantity } from '../components/ShopItem.js';
 
 export const CartPage = (props) => (
     <Container>
@@ -16,8 +17,8 @@ export const CartPage = (props) => (
         <Link href="/aboutus" passHref>About Us</Link>
         <Link href="/shop" passHref>Return to Shop</Link>
         <Link href="/cart" passHref>
-          <IconButton size="large" aria-label="show 1 new item" color="inherit">
-            <Badge badgeContent={1} color="error">
+        <IconButton size="large" aria-label="show number of items added" color="inherit">
+            <Badge badgeContent={cartQuantity} color="error">
               <ShoppingCartIcon/>
             </Badge>
           </IconButton>
@@ -25,11 +26,7 @@ export const CartPage = (props) => (
       </nav>
       
         <Typography variant="h1">My Cart</Typography>
-        <div className="cart-quantity cart-column">
-          < input className="cart-quantity-input" type="number" value="1" min="1" max="10" />
-          <button className="btn btn-danger"
-            type="button">REMOVE</button>
-        </div>
+
         <CartItemList
       />
       

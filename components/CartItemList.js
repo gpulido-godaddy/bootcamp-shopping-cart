@@ -21,10 +21,33 @@ function CartItemList() {
     update();
   }, []);
 
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('Loaded cart from localStorage:', savedCart);
+    setCartItems(savedCart);
+  }, []);
+  
+  useEffect(() => {
+    console.log('Saving cart to localStorage:', cartItems);
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const handleDeleteFromCart = async (id) => {
     const response = await fetch(`http://localhost:8000/v1/cartitems/${id}`, { method: 'DELETE' })
     const updatedCartItems = cartItems.filter(cartItem => cartItem.id != id);
     setCartItems(updatedCartItems);
+  };
+
+  const handleIncreaseQuantity = (id) => {
+    setCartItems(cartItems.map(item => 
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    ));
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setCartItems(cartItems.map(item => 
+      item.id === id && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+    ));
   };
 
   return (
@@ -39,6 +62,8 @@ function CartItemList() {
               id={cartItem.id}
               quantity={cartItem.quantity}
               price={cartItem.price}
+              onIncreaseQuantity={handleIncreaseQuantity}
+              onDecreaseQuantity={handleDecreaseQuantity}
               onDeleteFromCart={() => handleDeleteFromCart(cartItem.id)}
               />
           </Grid>

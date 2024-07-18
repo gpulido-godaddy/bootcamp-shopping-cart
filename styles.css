@@ -1,19 +1,16 @@
-@font-face {
-  font-family: cursiveFont;
-  src: url(SignPainter.ttc);
-}
-
 body {
-  background-color: #fffdf1;
-  color: #020801;
-  font-family: cursiveFont;
-
+  background-color: #F8DFE3;
+  color: rgb(0, 0, 0);
 }
-
+boldfont{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
 a:visited {
-  color: lightgray;
+  color: rgb(0, 0, 0);
 }
-
 .carttopnav {
   display: flex;
   justify-content: flex-end;
@@ -23,7 +20,6 @@ a:visited {
   padding: 10px;
   /* Optional: Add padding for spacing */
 }
-
 .carttopnav a {
   color: #020801;
   text-align: center;
@@ -31,18 +27,15 @@ a:visited {
   text-decoration: none;
   font-size: 17px;
 }
-
 .carttopnav a:hover {
   background-color: #f50057;
   color: #ffffff;
 }
-
 /* Adjust styles for the IconButton */
 .carttopnav .MuiIconButton-root {
   /* Automatically aligns the IconButton to the right */
   margin-left: auto;
 }
-
 .shoptopnav {
   display: flex;
   justify-content: flex-end;
@@ -52,7 +45,6 @@ a:visited {
   padding: 10px;
   /* Optional: Add padding for spacing */
 }
-
 .shoptopnav a {
   color: #020801;
   text-align: center;
@@ -60,18 +52,15 @@ a:visited {
   text-decoration: none;
   font-size: 17px;
 }
-
 .shoptopnav a:hover {
   background-color: #f50057;
   color: #ffffff;
 }
-
 /* Adjust styles for the IconButton */
 .shoptopnav .MuiIconButton-root {
   /* Automatically aligns the IconButton to the right */
   margin-left: auto;
 }
-
 .abouttopnav {
   display: flex;
   justify-content: flex-end;
@@ -81,7 +70,6 @@ a:visited {
   padding: 10px;
   /* Optional: Add padding for spacing */
 }
-
 .abouttopnav a {
   color: #020801;
   text-align: center;
@@ -89,18 +77,15 @@ a:visited {
   text-decoration: none;
   font-size: 17px;
 }
-
 .abouttopnav a:hover {
   background-color: #f50057;
   color: #ffffff;
 }
-
 /* Adjust styles for the IconButton */
 .abouttopnav .MuiIconButton-root {
   /* Automatically aligns the IconButton to the right */
   margin-left: auto;
 }
-
 .category1topnav {
   display: flex;
   justify-content: flex-end;
@@ -110,7 +95,6 @@ a:visited {
   padding: 10px;
   /* Optional: Add padding for spacing */
 }
-
 .category1topnav a {
   color: #020801;
   text-align: center;
@@ -118,18 +102,15 @@ a:visited {
   text-decoration: none;
   font-size: 17px;
 }
-
 .category1topnav a:hover {
   background-color: #f50057;
   color: #ffffff;
 }
-
 /* Adjust styles for the IconButton */
 .category1topnav .MuiIconButton-root {
   /* Automatically aligns the IconButton to the right */
   margin-left: auto;
 }
-
 .indextopnav {
   display: flex;
   justify-content: flex-end;
@@ -139,7 +120,15 @@ a:visited {
   padding: 10px;
   /* Optional: Add padding for spacing */
 }
-
+indextopnavs {
+  display: flex;
+  justify-content: flex;
+  /* Align items to the right */
+  align-items: center;
+  /* Center items vertically */
+  padding: 10px;
+  /* Optional: Add padding for spacing */
+}
 .indextopnav a {
   color: #020801;
   text-align: center;
@@ -147,14 +136,19 @@ a:visited {
   text-decoration: none;
   font-size: 17px;
 }
-
 .indextopnav a:hover {
   background-color: #f50057;
   color: #ffffff;
 }
-
 /* Adjust styles for the IconButton */
 .indextopnav .MuiIconButton-root {
   /* Automatically aligns the IconButton to the right */
   margin-left: auto;
 }
+
+
+
+
+
+
+

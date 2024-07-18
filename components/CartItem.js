@@ -1,11 +1,39 @@
 import React from 'react';
-import { Card, Button, CardContent, CardActions, CardMedia, Typography} from '@mui/material';
+import { Card, Button, CardContent, CardActions, CardMedia, Typography, IconButton, Box} from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
-function CartItem({id, name, price, quantity, image_url,onDeleteFromCart}) {
+function CartItem({id, name, price, quantity, image_url,onDeleteFromCart, onDecreaseQuantity, onIncreaseQuantity}) {
   
+  const addToCartUrl = "http://localhost:8000/v1/cartitems";
+
   const deleteFromCart = () => {
     onDeleteFromCart(id)
   }
+
+  const increaseQuantity = () => {
+    onIncreaseQuantity(id);
+    handleUpdateQuantity(quantity+1);
+  };
+
+  const decreaseQuantity = () => {
+    onDecreaseQuantity(id);
+    handleUpdateQuantity(quantity-1);
+    
+  };
+
+   const handleUpdateQuantity = async (quantity) => {
+    const body = JSON.stringify({ id, quantity: quantity });
+    const response = await fetch(addToCartUrl, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    });
+    
+  }
+
   return (
     <Card styles={{height: "150px",width:"70px"}}>
       <CardMedia
@@ -15,10 +43,25 @@ function CartItem({id, name, price, quantity, image_url,onDeleteFromCart}) {
       />
       <div>
       
-        <CardContent styles={{height: "200px",width:"150px"}}>
+      <CardContent>
           <Typography variant="h6">{name}</Typography>   
           <Typography variant="h3">${price}</Typography>
           <Typography variant="h6">Quantity: {quantity}</Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <IconButton
+              color="inherit"
+              onClick={decreaseQuantity}
+              disabled={quantity === 1}
+            >
+              <RemoveIcon />
+            </IconButton>
+            <Typography variant="body1" sx={{ mx: 2 }}>
+              {quantity}
+            </Typography>
+            <IconButton color="inherit" onClick={increaseQuantity}>
+              <AddIcon />
+            </IconButton>
+          </Box>
         </CardContent>
         <CardActions>
           <Button onClick={deleteFromCart} color="inherit">Remove cart item</Button>
