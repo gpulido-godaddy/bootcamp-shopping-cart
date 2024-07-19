@@ -102,8 +102,8 @@ export const IndexPage = (props) => (
         <Link href="/shop" passHref>
           Shop
         </Link>
-        <Link href="/category1" passHref>
-          On sale
+        <Link href="/sales" passHref>
+          Sales
         </Link>
         <Link href="/aboutus" passHref>
           About Us
@@ -155,7 +155,7 @@ export const IndexPage = (props) => (
     <div style={{ display: 'flex', justifyContent: 'center', mx:50}}>
     <Background>
     <Typography variant="h3">
-      Get inspire on how to use our products down below
+      Get inspiration on how to use our products down below
       </Typography>
       </Background>
       </div>

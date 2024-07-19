@@ -15,7 +15,7 @@ export const Sales = (props) => (
         <Link href="/aboutus" passHref>About Us</Link>
         <Link href="/cart" passHref>
           <IconButton size="large" aria-label="show 1 new item" color="inherit">
-            <Badge badgeContent={1} color="error">
+            <Badge variant="dot" color="error" overlap="circular">
               <ShoppingCartIcon/>
             </Badge>
           </IconButton>

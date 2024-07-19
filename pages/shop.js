@@ -23,7 +23,7 @@ export const ShopPage = (props) => (
       </Link>
       <Link href="/cart" passHref>
       <IconButton size="large" aria-label="show number of items added" color="inherit">
-            <Badge badgeContent={cartQuantity} color="error">
+        <Badge variant="dot" color="error" overlap="circular">
               <ShoppingCartIcon/>
             </Badge>
           </IconButton>
