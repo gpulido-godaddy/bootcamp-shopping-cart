@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Box } from '@mui/material';
+import { Grid, Box,Typography, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import SalesItem from './SalesItem';
 
@@ -10,6 +10,16 @@ function SalesList() {
   const getProductsListUrl = "http://localhost:8000/v1/products" ;
   const [saleProducts, setSaleProducts] = useState([]);
   const router = useRouter();
+
+  const [priceLimit,setPriceLimit] = useState('');
+
+const handlePriceLimit = (newPriceLimit) => {
+  setPriceLimit(newPriceLimit);
+};
+
+const handleReverse = () => {
+  setPriceLimit(2000);
+}
 
   useEffect( () => {
     async function update(){
@@ -37,8 +47,16 @@ function SalesList() {
   }
 
   return (
+    <div>
+    <div>
+    <Typography variant="h6">FILTER BY:</Typography>
+    <Button color="inherit" onClick={handleReverse}>All Items</Button>
+      <Button color="inherit" onClick={() => handlePriceLimit(80)}>Items Under $70</Button>
+      <Button color="inherit" onClick={() => handlePriceLimit(80)}>Items Under $50</Button>
+      <Button color="inherit" onClick={() => handlePriceLimit(30)}>Items Under $30</Button>
+    </div>
     <Grid container direction="row" spacing={5} sx={{ m: 0.5 }}>
-       {saleProducts.map(product => 
+       {saleProducts.map(product => (product.sale_price <= priceLimit) && 
        <Grid
        display="flex"
        minHeight="60vh"
@@ -58,6 +76,7 @@ function SalesList() {
         </Grid>
        )}
     </Grid>
+    </div>
   )
 }
 
